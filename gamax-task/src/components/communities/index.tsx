@@ -31,18 +31,18 @@ const Communities: React.FC = () => {
     setCommunities(listOfCommunities);
   }, []);
 
+  const renderCommunity = (community: Community, index: number) => (
+    <li className="flex justify-between" key={index}>
+      <div>{community.name}</div>
+      <div>{community.numberOfMembers}</div>
+    </li>
+  );
+
   return (
     <div className="col-span-1">
       <div className="text-lg text-left">Communities</div>
       <ul className="rounded-lg border border-black p-4 flex flex-col gap-4">
-        {communities.map((community, index) => {
-          return (
-            <li className="flex justify-between" key={index}>
-              <div>{community.name}</div>
-              <div>{community.numberOfMembers}</div>
-            </li>
-          );
-        })}
+        {communities.map(renderCommunity)}
       </ul>
     </div>
   );

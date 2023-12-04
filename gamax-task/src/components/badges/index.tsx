@@ -74,52 +74,55 @@ const userBadges: Badge[] = [
   },
 ];
 
-const Stats: React.FC = () => {
-  const [goldBadges, setGoldBadges] = useState<Badge[]>([]);
-  const [silverBadges, setSilverBadges] = useState<Badge[]>([]);
-  const [bronzeBadges, setBronzeBadges] = useState<Badge[]>([]);
+const Badges: React.FC = () => {
+  const [badgeGroups, setBadgeGroups] = useState<{
+    [key in BadgeType]: Badge[];
+  }>({
+    Gold: [],
+    Silver: [],
+    Bronze: [],
+  });
 
   useEffect(() => {
-    // Filter badges based on their types
-    const gold = userBadges.filter((badge) => badge.type === BadgeType.Gold);
-    const silver = userBadges.filter(
-      (badge) => badge.type === BadgeType.Silver
-    );
-    const bronze = userBadges.filter(
-      (badge) => badge.type === BadgeType.Bronze
+    const groupedBadges = userBadges.reduce<{ [key in BadgeType]: Badge[] }>(
+      (groups, badge) => {
+        groups[badge.type].push(badge);
+        return groups;
+      },
+      {
+        Gold: [],
+        Silver: [],
+        Bronze: [],
+      } as { [key in BadgeType]: Badge[] }
     );
 
-    // Set local states
-    setGoldBadges(gold);
-    setSilverBadges(silver);
-    setBronzeBadges(bronze);
+    setBadgeGroups(groupedBadges);
   }, []);
 
-  const renderBadges = (badges: Badge[]) => {
-    return (
-      <ul>
-        {badges.map((badge, index) => {
-          return (
-            <li className="flex justify-between" key={index}>
-              <div>{badge.name}</div>
-              <div>{badge.date.toDateString()}</div>
-            </li>
-          );
-        })}
-      </ul>
-    );
-  };
+  const renderBadges = (badges: Badge[]) => (
+    <ul>
+      {badges.map((badge) => (
+        <li className="flex justify-between" key={badge.name}>
+          <div>{badge.name}</div>
+          <div>{badge.date.toDateString()}</div>
+        </li>
+      ))}
+    </ul>
+  );
 
   return (
     <div className="col-span-3">
-      <div className="text-lg text-left">Stats</div>
-      <ul className="rounded-lg border border-black p-4 flex flex-col grid grid-cols-3 gap-4">
-        <li className="col-span-1">{renderBadges(goldBadges)}</li>
-        <li>{renderBadges(silverBadges)}</li>
-        <li>{renderBadges(bronzeBadges)}</li>
-      </ul>
+      <div className="text-lg text-left">Badges</div>
+      <div className="rounded-lg border border-black p-4 flex flex-col grid grid-cols-3 gap-4">
+        {Object.entries(badgeGroups).map(([type, badges]) => (
+          <div key={type} className="col-span-1">
+            <h2>{type} Badges</h2>
+            {renderBadges(badges)}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
 
-export default Stats;
+export default Badges;
