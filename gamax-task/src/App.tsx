@@ -1,13 +1,8 @@
-// App.js
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Badges from "./components/badges";
-import Communities from "./components/communities";
-import Search from "./components/search";
-import Stats from "./components/stats";
-import Tags from "./components/tags";
+import Search from "./pages/search";
 import Menu from "./components/menu";
-import User from "./components/user";
+import Home from "./pages/home";
 
 function App() {
   return (
@@ -22,18 +17,6 @@ function App() {
         </Routes>
       </div>
     </Router>
-  );
-}
-
-function Home() {
-  return (
-    <>
-      <User />
-      <Stats />
-      <Badges />
-      <Communities />
-      <Tags />
-    </>
   );
 }
 

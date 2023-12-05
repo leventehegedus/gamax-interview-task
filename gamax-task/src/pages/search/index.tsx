@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios, { AxiosResponse } from "axios";
-import ResultItem from "../searchResultItem";
+import ResultItem from "../../components/searchResultItem";
 
 interface Owner {
   account_id: number;

@@ -102,11 +102,11 @@ const Badges: React.FC = () => {
   const getBadgeImage = (type: BadgeType) => {
     switch (type) {
       case BadgeType.Gold:
-        return "gold_badge_image.png"; // Replace with your actual gold badge image URL
+        return "images/gold_badge_image.png"; // Replace with your actual gold badge image URL
       case BadgeType.Silver:
-        return "silver_badge_image.png"; // Replace with your actual silver badge image URL
+        return "images/silver_badge_image.png"; // Replace with your actual silver badge image URL
       case BadgeType.Bronze:
-        return "bronze_badge_image.png"; // Replace with your actual bronze badge image URL
+        return "images/bronze_badge_image.png"; // Replace with your actual bronze badge image URL
       default:
         return "";
     }

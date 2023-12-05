@@ -1,5 +1,5 @@
 import React from "react";
-import { StackExchangeItem } from "../search";
+import { StackExchangeItem } from "../../pages/search";
 
 interface ResultItemProps {
   result: StackExchangeItem;
