@@ -1,22 +1,20 @@
 import React from "react";
 
-interface UserProps {
-  user: {
-    avatar: string;
-    username: string;
-    joinDate: string;
-    lastSeenDate: string;
-  };
+interface User {
+  avatar: string;
+  username: string;
+  joinDate: string;
+  lastSeenDate: string;
 }
 
-const user = {
+const user: User = {
   avatar: "https://placekitten.com/100/100",
   username: "exampleUser",
   joinDate: "January 1, 2022",
   lastSeenDate: "December 15, 2022",
 };
 
-const User: React.FC<UserProps> = () => {
+const User: React.FC = () => {
   return (
     <div className="p-4 bg-gray-100 rounded flex justify-between items-center col-span-4">
       <div className="flex items-center">
