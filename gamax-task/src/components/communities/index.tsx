@@ -32,35 +32,30 @@ const Communities: React.FC = () => {
   }, []);
 
   return (
-    <div className="col-span-1">
-      <div className="p-4 bg-gray-100 rounded col-span-4">
-        <div className="text-lg text-left">Communities</div>
-        <ul>
-          {communities.map((community, index) => (
-            <li
-              key={index}
-              className="mb-6 p-4 border rounded-lg shadow-md flex"
-            >
-              <div className="flex-1">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="col-span-1">
-                    <div className="flex items-center">
-                      <span className="bg-blue-200 text-blue-700 px-2 py-1 rounded">
-                        {community.name}
-                      </span>
-                    </div>
+    <div className="col-span-1 p-4 bg-gray-100 rounded">
+      <div className="text-lg text-left">Communities</div>
+      <ul>
+        {communities.map((community, index) => (
+          <li key={index} className="mb-6 p-4 border rounded-lg shadow-md flex">
+            <div className="flex-1">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="col-span-1">
+                  <div className="flex items-center">
+                    <span className="bg-blue-200 text-blue-700 px-2 py-1 rounded">
+                      {community.name}
+                    </span>
                   </div>
-                  <div className="col-span-1">
-                    <div className="flex items-center justify-end">
-                      <span>{community.numberOfMembers}</span>
-                    </div>
+                </div>
+                <div className="col-span-1">
+                  <div className="flex items-center justify-end">
+                    <span>{community.numberOfMembers}</span>
                   </div>
                 </div>
               </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

@@ -52,40 +52,38 @@ const Tags: React.FC = () => {
   }, []);
 
   return (
-    <div className="col-span-3">
-      <div className="p-4 bg-gray-100 rounded col-span-4">
-        <div className="text-lg text-left mb-4">Top Tags</div>
-        <ul>
-          {tags.map((item) => (
-            <li
-              key={item.name}
-              className="mb-6 p-4 border rounded-lg shadow-md flex justify-between"
-            >
-              <div className="flex items-center">
-                <span className="bg-blue-200 text-blue-700 px-2 py-1 rounded">
-                  {item.name}
+    <div className="col-span-3 p-4 bg-gray-100 rounded">
+      <div className="text-lg text-left mb-4">Top Tags</div>
+      <ul>
+        {tags.map((item) => (
+          <li
+            key={item.name}
+            className="mb-6 p-4 border rounded-lg shadow-md flex justify-between"
+          >
+            <div className="flex items-center">
+              <span className="bg-blue-200 text-blue-700 px-2 py-1 rounded">
+                {item.name}
+              </span>
+            </div>
+            <div className="flex gap-2">
+              <div>
+                <span className="font-bold mr-2">{item.stats.score}</span>
+                <span>score</span>
+              </div>
+              <div>
+                <span className="font-bold mr-2">{item.stats.posts}</span>
+                <span>posts</span>
+              </div>
+              <div>
+                <span className="font-bold mr-2">
+                  {item.stats.postsPercentage}
                 </span>
+                <span>posts %</span>
               </div>
-              <div className="flex gap-2">
-                <div>
-                  <span className="font-bold mr-2">{item.stats.score}</span>
-                  <span>score</span>
-                </div>
-                <div>
-                  <span className="font-bold mr-2">{item.stats.posts}</span>
-                  <span>posts</span>
-                </div>
-                <div>
-                  <span className="font-bold mr-2">
-                    {item.stats.postsPercentage}
-                  </span>
-                  <span>posts %</span>
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

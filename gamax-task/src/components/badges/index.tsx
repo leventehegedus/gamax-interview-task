@@ -160,14 +160,12 @@ const Badges: React.FC = () => {
   );
 
   return (
-    <div className="col-span-3">
-      <div className="p-4 bg-gray-100 rounded col-span-4">
-        <div className="text-lg text-left mb-4">Badges</div>
-        <div className="flex flex-col gap-4 grid grid-cols-3">
-          {Object.entries(badgeGroups).map(([type, badges]) =>
-            renderBadgeBox(type as BadgeType, badges)
-          )}
-        </div>
+    <div className="col-span-3 p-4 bg-gray-100 rounded">
+      <div className="text-lg text-left mb-4">Badges</div>
+      <div className="flex flex-col gap-4 grid grid-cols-3">
+        {Object.entries(badgeGroups).map(([type, badges]) =>
+          renderBadgeBox(type as BadgeType, badges)
+        )}
       </div>
     </div>
   );
