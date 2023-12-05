@@ -23,21 +23,33 @@ const Stats: React.FC = () => {
     setStats(userStats);
   }, []);
 
-  const renderStat = (stat: Stat) => (
-    <li className="flex justify-between">
-      <div>{stat.reputation}</div>
-      <div>{stat.reached}</div>
-      <div>{stat.questions}</div>
-      <div>{stat.answers}</div>
-      <div>{stat.top}</div>
+  const renderStat = (label: string, value: number) => (
+    <li
+      className="mb-6 p-4 border rounded-lg shadow-md flex justify-between items-center"
+      key={label}
+    >
+      <span className="text-lg font-semibold text-left">{label}</span>
+      <span className="text-gray-700 text-sm text-right font-bold">
+        {value}
+      </span>
     </li>
   );
 
   return (
-    <div className="col-span-1">
-      <div className="text-lg text-left">Stats</div>
-      <ul className="rounded-lg border border-black p-4 flex flex-col gap-4">
-        {stats && renderStat(stats)}
+    <div className="p-4 bg-gray-100 rounded col-span-1">
+      <div className="mb-4">
+        <div className="text-lg text-left">Stats</div>
+      </div>
+      <ul>
+        {stats && (
+          <>
+            {renderStat("Reputation", stats.reputation)}
+            {renderStat("Reached", stats.reached)}
+            {renderStat("Questions", stats.questions)}
+            {renderStat("Answers", stats.answers)}
+            {renderStat("Top", stats.top)}
+          </>
+        )}
       </ul>
     </div>
   );

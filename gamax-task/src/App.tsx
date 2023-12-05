@@ -1,6 +1,7 @@
 import "./App.css";
 import Badges from "./components/badges";
 import Communities from "./components/communities";
+import Search from "./components/search";
 import Stats from "./components/stats";
 import Tags from "./components/tags";
 
@@ -12,6 +13,7 @@ function App() {
         <Badges />
         <Communities />
         <Tags />
+        <Search />
       </div>
     </>
   );
